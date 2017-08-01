@@ -17,8 +17,30 @@ Real GDP
 
 ``` r
 gdp_cat <- WDIsearch("gdp")
-#GDPPCKN
+
+gdp_growth <- WDI(indicator="NY.GDP.MKTP.KD.ZG", country = c("HK", "CN", "US"),
+                  start=1980, end=2017)
+
+gdp_growth_sum_st <- gdp_growth %>%
+  group_by(country) %>%
+  summarise(mean_growth = round(mean(NY.GDP.MKTP.KD.ZG),2),
+            sd_growth =  round(sd(NY.GDP.MKTP.KD.ZG),2))
+
+datatable(gdp_growth_sum_st)
 ```
+
+![](hk_economy_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
+
+``` r
+gdp_growth_plot <- gdp_growth %>%
+  filter(year >= 2000) %>%
+  ggplot(.,aes(x = year, y = NY.GDP.MKTP.KD.ZG, group = country)) + geom_line(aes(colour = country)) + theme_fivethirtyeight() +
+  labs(title = "Real GDP Growth - 2000 to 2016", subtitle = "Annual % Growth")
+
+gdp_growth_plot
+```
+
+![](hk_economy_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-2.png)
 
 References
 ----------
