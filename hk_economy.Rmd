@@ -7,11 +7,21 @@ output:
     toc_depth: 2
 ---
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 setwd("/Users/Yan_Ting_Hin/impatient-researcher/economic_monitor")
+library(WDI)
 ```
 
 ## Aim
 
 - understand key statistics of hong kong's economy in the past 20 years.
 - a showcase of beautiful charts
+
+## Real GDP
+```{r}
+gdp_cat <- WDIsearch("gdp")
+#GDPPCKN
+```
+
+## References
+- [how to use WDI package in R](https://cran.r-project.org/web/packages/WDI/README.html)
