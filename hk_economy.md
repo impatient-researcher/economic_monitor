@@ -26,10 +26,15 @@ gdp_growth_sum_st <- gdp_growth %>%
   summarise(mean_growth = round(mean(NY.GDP.MKTP.KD.ZG),2),
             sd_growth =  round(sd(NY.GDP.MKTP.KD.ZG),2))
 
-datatable(gdp_growth_sum_st)
+gdp_growth_sum_st
 ```
 
-![](hk_economy_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
+    ## # A tibble: 3 x 3
+    ##                country mean_growth sd_growth
+    ##                  <chr>       <dbl>     <dbl>
+    ## 1                China        9.66      2.72
+    ## 2 Hong Kong SAR, China        4.77      3.82
+    ## 3        United States        2.61      1.93
 
 ``` r
 gdp_growth_plot <- gdp_growth %>%
@@ -40,7 +45,7 @@ gdp_growth_plot <- gdp_growth %>%
 gdp_growth_plot
 ```
 
-![](hk_economy_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-2.png)
+![](hk_economy_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-1-1.png)
 
 References
 ----------
