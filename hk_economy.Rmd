@@ -39,7 +39,7 @@ kable(gdp_growth_sum_st)
 
 Real GDP growth in China, on average, is some 9%, around 3 times faster than the US and Hong Kong.
 
-```{r}
+```{r, dpi=300}
 gdp_growth_plot <- gdp_growth %>%
   filter(year >= 1997) %>%
   ggplot(.,aes(x = year, y = NY.GDP.MKTP.KD.ZG, group = country)) + geom_line(aes(colour = country)) + theme_fivethirtyeight() +
